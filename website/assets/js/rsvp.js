@@ -253,7 +253,7 @@ function renderGuests(data) {
                 ${attendance ? 'checked' : ''}
                 >
                 <label class="form-check-label" for="attending-switch-${member.id}" id="attendingLabel_${member.id}">
-                    ${attendance ? {{ i18n "rsvp.yes" | jsonify }} : {{ i18n "rsvp.no" | jsonify }}}
+                    ${attendance ? {{ i18n "rsvp.yes" | upper | jsonify }} : {{ i18n "rsvp.no" | upper |jsonify }}}
                 </label>
             </div>
         </div>`;
@@ -447,7 +447,7 @@ $(document).on('change', 'input[id^="attending-switch-"]', function () {
     const isAttending = this.checked;
 
     // Update label
-    $(`#attendingLabel_${id}`).text(isAttending ? {{ i18n "rsvp.yes" | jsonify }} : {{ i18n "rsvp.no" | jsonify }});
+    $(`#attendingLabel_${id}`).text(isAttending ? {{ i18n "rsvp.yes" | upper | jsonify }} : {{ i18n "rsvp.no" | upper | jsonify }});
     // Enable / disable 
     $(`#dietary-requirements-${id}`).prop('disabled', !isAttending);
     const $nameText = $(`#plusoneName_${id}`);
