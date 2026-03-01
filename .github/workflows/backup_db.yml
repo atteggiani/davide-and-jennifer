@@ -6,6 +6,7 @@ on:
     - cron: "0 14 * * *" # every day at 14:00 UTC (1am AEDT)
 env:
   BACKUP_FOLDER: backups
+  TABLES: 'guests guest_auth contacts'
 
 jobs:
   backup:
@@ -24,7 +25,7 @@ jobs:
       - name: Export guests and guest_auth table to CSV
         run: |
           mkdir -p ${{ env.BACKUP_FOLDER }}
-          for table in guests guest_auth; do
+          for table in ${{ env.TABLES }}; do
             curl \
                 -H "apikey: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
                 -H "Authorization: Bearer ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}" \
