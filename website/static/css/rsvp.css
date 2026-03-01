@@ -112,6 +112,10 @@ h5 {
     gap: 0.5rem;
 }
 
+#rsvp-password {
+    width: 15ch;
+}
+
 @media (max-width: 992px) {
   .form-floating > label {
     white-space: normal;
