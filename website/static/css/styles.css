@@ -67,7 +67,7 @@ h1 {
     font-size: 4.5rem;
     font-family: "Fleur De Leah", cursive;
 }
-
+/* 
 .main-title {
     color: var(--color-white);
     position: absolute;
@@ -91,7 +91,7 @@ h1.main-title {
 h2.main-title {
     font-size: 5rem;
     margin-top: 2em;
-}
+} */
 
 .page-margins {
   margin: 0 3rem 3rem;
