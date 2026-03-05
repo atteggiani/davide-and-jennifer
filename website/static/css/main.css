@@ -1,5 +1,6 @@
 :root {
     --main-title-h2-margin-top: 0.5rem;
+    --info-margin-bottom: 1rem;
 }
 
 .container {
@@ -26,7 +27,7 @@
 
 .main-title {
     position: relative;
-    top: calc(1/2 * (var(--main-title-h2-margin-top) + (var(--hero-h2-font-size) * var(--hero-h2-line-height))));
+    top: calc(1/2 * (var(--main-title-h2-margin-top) + (var(--hero-h2-font-size) * var(--hero-h2-line-height)) + var(--info-margin-bottom)));
 }
 
 .main-title h2 {
@@ -50,10 +51,11 @@ section {
 .main-info {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     padding: 0 2rem;
-    gap: 0 1rem;
+    gap: 0 2rem;
     height: calc(var(--hero-h2-font-size) * var(--hero-h2-line-height));
+    margin-bottom: var(--info-margin-bottom);
 }
 
 .info-box {
@@ -67,11 +69,11 @@ section {
 
 .info-label {
     margin-bottom: 0.25rem;
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 .info-value {
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 .section-image {
@@ -123,13 +125,10 @@ section a {
 
 /* Mobiles */
 @media (max-width: 992px) {
-    .info-label {
-        margin-bottom: 0.1rem;
-        font-size: 1.2em;
+    :root {
+        --info-margin-bottom: 2rem;
     }
-    .info-value {
-        font-size: 1.2em;
-    }
+
     .hero {
         position: relative;
         width: 100vw;
