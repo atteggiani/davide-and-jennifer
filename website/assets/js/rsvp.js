@@ -111,7 +111,7 @@ function hidePageLoader() {
 // Run Supabase Edge function to get a guest session to authenticate the user if the rsvp_token matches
 async function getGuestJWT(rsvpPassword, supabaseClient) {
     const res = await supabaseClient.functions.invoke(
-        'guest-issue-jwt',
+        'issue-guest-jwt-rate-limiter-enabled',
         {
             body: { rsvp_password: rsvpPassword }
         }
