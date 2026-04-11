@@ -6,7 +6,7 @@ on:
     - cron: "0 14 * * *" # every day at 14:00 UTC (1am AEDT)
 env:
   BACKUP_FOLDER: backups
-  TABLES: 'guests guest_auth contacts ip_rate_limits'
+  TABLES: "guests guest_auth contacts ip_rate_limits"
 
 jobs:
   backup:
@@ -33,7 +33,7 @@ jobs:
 
       - name: Commit and push backup if changed
         run: |
-          if ! git diff --quiet ${{ env.BACKUP_FOLDER }}; then
+          if git diff --quiet ${{ env.BACKUP_FOLDER }}; then
             echo "No changes in database"
             exit 0
           fi
