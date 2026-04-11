@@ -33,14 +33,12 @@ jobs:
 
       - name: Commit and push backup if changed
         run: |
-          if git diff --quiet ${{ env.BACKUP_FOLDER }}; then
-            echo "No changes in database"
-            exit 0
-          fi
-
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
 
           git add ${{ env.BACKUP_FOLDER }}
-          git commit -m "Backup Supabase DB: $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
+          git commit -m "Backup Supabase DB: $(date -u +"%Y-%m-%d %H:%M:%S UTC")" || {
+            echo "No changes to commit"
+            exit 0
+          }
           git push
