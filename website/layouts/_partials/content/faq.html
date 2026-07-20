@@ -54,19 +54,6 @@
 
 <div class="faq-item">
     <div data-bs-toggle="collapse" aria-expanded="false" class="faq-question collapsed"
-    data-bs-target="#rsvpdeadline" aria-controls="rsvpdeadline"
-    >
-        {{ .Params.rsvpDeadlineQuestion }}
-    </div>
-    <div class="collapse" id="rsvpdeadline">
-        <div class="faq-answer">
-            {{ .Params.rsvpDeadlineAnswer | markdownify }}
-        </div>
-    </div>
-</div>
-
-<div class="faq-item">
-    <div data-bs-toggle="collapse" aria-expanded="false" class="faq-question collapsed"
     data-bs-target="#dresscode" aria-controls="dresscode"
     >
         {{ .Params.dressCodeQuestion }}
@@ -103,7 +90,7 @@
     <div class="collapse" id="whattodo">
         <div class="faq-answer">
             {{ .Params.whatToDoAnswer1 | markdownify }}
-            {{ .Params.whatToDoAnswer2 | markdownify }} <a href="{{ relLangURL "travel#activities" }}">Travel & Stay</a> page.
+            {{ .Params.whatToDoAnswer2 | markdownify }} <a href="{{ relLangURL "travel#activities" }}">{{ i18n "menu.travel" }}</a>{{ .Params.page }}.
         </div>
     </div>
 </div>
